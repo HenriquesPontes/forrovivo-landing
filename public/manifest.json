@@ -1,0 +1,22 @@
+{
+  "name": "ForroVivo - Learn Forro. Preserve Culture.",
+  "short_name": "ForroVivo",
+  "description": "The world's first culture app for learning Forro languages of São Tomé and Príncipe. Help keep cultural heritage alive.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fefefe",
+  "theme_color": "#12AD2B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/ICON/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr"
+}
+
