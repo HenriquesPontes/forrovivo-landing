@@ -1,5 +1,18 @@
 # Step-by-Step Guide: Connect Squarespace Domain to GitHub Pages
 
+## ⚠️ IMPORTANT: Do NOT Enable Parking Page
+
+**If Squarespace asks about adding a parking page, click "No" or "Skip".**
+
+- ❌ **DO NOT** enable the parking page option
+- ❌ **DO NOT** connect the domain to a Squarespace website
+- ✅ **DO** configure DNS records to point directly to GitHub Pages
+- ✅ **DO** skip any parking page prompts
+
+The parking page would point your domain to Squarespace's servers instead of GitHub Pages. We want to bypass Squarespace hosting entirely and point directly to GitHub Pages.
+
+---
+
 ## Prerequisites
 - ✅ Domain: `forrovivo.com` purchased from Squarespace
 - ✅ GitHub repository: `HenriquesPontes/forrovivo-landing`
@@ -21,6 +34,10 @@
 2. Click **Domains** (under Website Management)
 3. Find `forrovivo.com` in the list
 4. Click on `forrovivo.com` to open domain settings
+
+**⚠️ If you see a prompt about "parking page" or "under construction page":**
+- Click **"No"**, **"Skip"**, or **"Not now"**
+- We want to configure DNS manually, not use Squarespace hosting
 
 ### Step 3: Access DNS Settings
 1. In the domain settings page, look for **DNS Settings** or **Advanced DNS**
