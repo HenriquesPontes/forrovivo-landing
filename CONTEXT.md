@@ -294,7 +294,7 @@ npm run build  # Build for production
 - **Company Number:** 16799761
 - **Incorporation Date:** 21st October 2025
 - **Company Type:** Private company limited by shares
-- **Registered Office:** 23 WREN HOUSE, LONDON, WESTMINSTER, ENGLAND SW1V 3QD
+- **Registered Office:** 
 - **Jurisdiction:** England and Wales
 - **Registered in:** Companies House, Cardiff
 - **Director:** HENRIQUES PONTES
@@ -407,11 +407,6 @@ Header:
 ### Registered Office Address
 
 **LIVLU TECHNOLOGIES LTD**
-23 WREN HOUSE
-LONDON
-WESTMINSTER
-ENGLAND
-SW1V 3QD
 
 **Company Registration:**
 - Company Number: 16799761
@@ -862,7 +857,7 @@ npm run build
 - **Company Number:** 16799761
 - **Incorporation Date:** 21st October 2025
 - **Company Type:** Private company limited by shares
-- **Registered Office:** 23 WREN HOUSE, LONDON, WESTMINSTER, ENGLAND SW1V 3QD
+- **Registered Office:** 
 - **Jurisdiction:** England and Wales
 - **Registrar:** Companies House, Cardiff
 - **Director:** HENRIQUES PONTES

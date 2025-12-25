@@ -12,13 +12,48 @@ import { ContactPage } from "./components/ContactPage";
 import { LearnMorePage } from "./components/LearnMorePage";
 import { translations, Language } from "./translations";
 
+// Map page names to URL paths
+const pageToPath: Record<string, string> = {
+  'home': '/',
+  'privacy': '/Privacy',
+  'terms': '/Terms',
+  'contact': '/Contact',
+  'learn-more': '/LearnMore',
+};
+
+// Map URL paths to page names
+const pathToPage: Record<string, string> = {
+  '/': 'home',
+  '/Privacy': 'privacy',
+  '/Terms': 'terms',
+  '/Contact': 'contact',
+  '/LearnMore': 'learn-more',
+};
+
+// Normalize path (remove trailing slash, handle base path)
+const normalizePath = (path: string): string => {
+  // Remove trailing slash except for root
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+  return path;
+};
+
+// Get page name from current URL path
+const getPageFromPath = (): string => {
+  const path = normalizePath(window.location.pathname);
+  return pathToPage[path] || 'home';
+};
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(getPageFromPath());
   const [language, setLanguage] = useState<Language>('en');
 
   const t = translations[language];
 
   const handleNavigate = (page: string) => {
+    const path = pageToPath[page] || '/';
+    window.history.pushState({ page }, '', path);
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -26,6 +61,26 @@ export default function App() {
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
   };
+
+  // Initialize history state and handle browser back/forward navigation
+  useEffect(() => {
+    // Sync history state with current URL on mount
+    const currentPath = normalizePath(window.location.pathname);
+    const pageFromUrl = pathToPage[currentPath] || 'home';
+    const normalizedPath = pageToPath[pageFromUrl] || '/';
+    window.history.replaceState({ page: pageFromUrl }, '', normalizedPath);
+
+    const handlePopState = (event: PopStateEvent) => {
+      const page = event.state?.page || getPageFromPath();
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
 
   // Update document title and language based on current page and language
   useEffect(() => {
@@ -59,14 +114,6 @@ export default function App() {
         "@type": "Organization",
         "name": "Livlu Technologies Ltd",
         "legalName": "Livlu Technologies Ltd",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "23 Wren House",
-          "addressLocality": "London",
-          "addressRegion": "Westminster",
-          "postalCode": "SW1V 3QD",
-          "addressCountry": "GB"
-        }
       },
       "inLanguage": ["en", "pt", "cri-ST"]
     };

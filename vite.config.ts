@@ -50,6 +50,15 @@ const iconPlugin = () => {
           }
         });
       }
+    },
+    writeBundle() {
+      // Copy index.html to 404.html for SPA routing support on static hosts
+      const indexPath = path.join(__dirname, 'build', 'index.html');
+      const notFoundPath = path.join(__dirname, 'build', '404.html');
+      
+      if (existsSync(indexPath)) {
+        copyFileSync(indexPath, notFoundPath);
+      }
     }
   };
 };

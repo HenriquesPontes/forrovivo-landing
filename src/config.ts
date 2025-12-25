@@ -34,12 +34,12 @@ export const config = {
       dpo: "dpo@forrovivo.com",
     },
     address: {
-      street: "23 Wren House",
-      city: "London",
-      region: "Westminster",
-      postalCode: "SW1V 3QD",
-      country: "England",
-      full: "23 Wren House, London, Westminster, England SW1V 3QD",
+      street: "",
+      city: "",
+      region: "",
+      postalCode: "",
+      country: "",
+      full: "",
     },
   },
   
